@@ -45,8 +45,8 @@ public class KhachHang implements IListener {
 
 	@Override
 	public void xuLy(Event e) {
-		if (e.getGiamgia() > 10 || e.getSp().getGiaTien() * e.getGiamgia() > 100000) {
-			if (khaNangChiTra > e.getSp().daGiamGia(e.getGiamgia())) {
+		if (e.getGiamGia() > 10 || e.getSp().getGiaTien() * e.getGiamGia() > 100000) {
+			if (khaNangChiTra > e.getSp().daGiamGia(e.getGiamGia())) {
 				System.out.println("Di mua ngay.");
 			} else {
 				System.out.println("O nha");

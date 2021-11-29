@@ -1,6 +1,6 @@
 package bh2;
 
-public class ChuNhat {
+public class ChuNhat implements IHinh {
 
     private float a;
     private float b;
@@ -20,17 +20,19 @@ public class ChuNhat {
         this.b = 1.0f;
     }
 
-    public double chuVi() {
-        return 2 * (this.a + this.b);
-    }
-
-    public double dienTich() {
-        return this.a * this.b;
-    }
-
     @Override
     public String toString() {
         return String.format("Hinh chu nhat co cac canh: a = %.2f, b = %.2f", this.a, this.b);
+    }
+
+    @Override
+    public double tinhChuVi() {
+        return 2 * (this.a + this.b);
+    }
+
+    @Override
+    public double tinhDienTich() {
+        return this.a * this.b;
     }
 
 }

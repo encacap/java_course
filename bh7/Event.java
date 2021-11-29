@@ -31,7 +31,7 @@ public class Event {
 		this.sp = sp;
 	}
 
-	public int getGiamgia() {
+	public int getGiamGia() {
 		return giamgia;
 	}
 
