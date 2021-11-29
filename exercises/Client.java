@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) {
+        // Threads
+        // demoThreadExtendThread();
+        // demoThreadImplementsRunnable();
+        // demoAnonymousThread();
+        demoAsynchronousThread();
+
         // Biến đổi cấu trúc lệnh lặp for thành lệnh lặp điều kiện trước bằng ví dụ cụ
         // thể
         // convertForToWhile();
@@ -43,6 +49,61 @@ public class Client {
         // cauLenhLap.forEachLoop();
         // cauLenhLap.whileLoop();
         // cauLenhLap.doWhileLoop();
+    }
+
+    private static void demoAsynchronousThread() {
+        final Money money = new Money(200);
+        Thread khanh = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                money.use("Khanh", 110);
+            }
+        });
+        Thread thuy = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                money.use("Thuy", 100);
+            }
+        });
+        khanh.start();
+        thuy.start();
+    }
+
+    private static void demoAnonymousThread() {
+        Thread myThread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello from anonymous thread 1");
+            }
+        });
+        Thread myThread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello from anonymous thread 2");
+            }
+        });
+        myThread1.start();
+        try {
+            myThread1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        myThread2.start();
+    }
+
+    private static void demoThreadImplementsRunnable() {
+        Thread myThread = new Thread(new OtherThread());
+        myThread.start();
+    }
+
+    private static void demoThreadExtendThread() {
+        Thread myThread = new MyThread();
+        myThread.start(); // Yeu cau chay Thread myThread
     }
 
     private static void convertForToWhile() {
